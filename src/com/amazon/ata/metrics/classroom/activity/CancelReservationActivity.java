@@ -2,7 +2,9 @@ package com.amazon.ata.metrics.classroom.activity;
 
 import com.amazon.ata.metrics.classroom.dao.ReservationDao;
 import com.amazon.ata.metrics.classroom.dao.models.Reservation;
+import com.amazon.ata.metrics.classroom.metrics.MetricsConstants;
 import com.amazon.ata.metrics.classroom.metrics.MetricsPublisher;
+import com.amazonaws.services.cloudwatch.model.StandardUnit;
 
 import javax.inject.Inject;
 
@@ -32,6 +34,8 @@ public class CancelReservationActivity {
     public Reservation handleRequest(final String reservationId) {
 
         Reservation response = reservationDao.cancelReservation(reservationId);
+        metricsPublisher.addMetric(MetricsConstants.CANCELED_RESERVATION_COUNT, 1, StandardUnit.Count);
+
         return response;
     }
 }
