@@ -36,6 +36,8 @@ public class CancelReservationActivity {
         Reservation response = reservationDao.cancelReservation(reservationId);
         metricsPublisher.addMetric(MetricsConstants.CANCELED_RESERVATION_COUNT, 1, StandardUnit.Count);
 
+        metricsPublisher.addMetric(MetricsConstants.RESERVATION_REVENUE, -response.getTotalCost().doubleValue(), StandardUnit.None);
+
         return response;
     }
 }

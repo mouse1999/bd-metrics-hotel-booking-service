@@ -13,6 +13,7 @@ public class MetricsConstants {
     public static final String BOOKED_RESERVATION_COUNT = "BookedReservationCount";
     public static final String CANCELED_RESERVATION_COUNT = "BookedReservationCount";
     public static final String MODIFIED_RESERVATION_COUNT = "ModifiedReservationCount";
+    public static final String RESERVATION_REVENUE         = "ReservationRevenue";
 
 
 }

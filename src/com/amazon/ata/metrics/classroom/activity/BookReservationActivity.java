@@ -37,6 +37,8 @@ public class BookReservationActivity {
 
         metricsPublisher.addMetric(MetricsConstants.BOOKED_RESERVATION_COUNT, 1, StandardUnit.Count);
 
+        metricsPublisher.addMetric(MetricsConstants.RESERVATION_REVENUE, response.getTotalCost().doubleValue(), StandardUnit.None);
+
         return response;
     }
 }

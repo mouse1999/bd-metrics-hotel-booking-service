@@ -42,6 +42,11 @@ public class ModifyReservationActivity {
 
         metricsPublisher.addMetric(MetricsConstants.MODIFIED_RESERVATION_COUNT, 1, StandardUnit.Count);
 
+        double total = updatedReservation.getModifiedReservation().getTotalCost()
+                .subtract(updatedReservation.getOriginalReservation().getTotalCost()).doubleValue();
+
+        metricsPublisher.addMetric(MetricsConstants.RESERVATION_REVENUE, total, StandardUnit.None);
+
         return updatedReservation;
     }
 }
